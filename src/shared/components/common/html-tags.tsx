@@ -21,7 +21,10 @@ export class HtmlTags extends Component<HtmlTagsProps, any> {
 
     return (
       <Helmet title={this.props.title}>
-        <html lang={I18NextService.i18n.resolvedLanguage} />
+        <html
+          lang={I18NextService.i18n.resolvedLanguage}
+          dir={I18NextService.i18n.resolvedLanguage === "ar" ? "rtl" : "ltr"}
+        />
 
         {["title", "og:title", "twitter:title"].map(t => (
           <meta key={t} property={t} content={this.props.title} />
